@@ -1,3 +1,7 @@
+- Language: C
+- The `Member(saying)` method is meant to return a Boolean - true if the saying is in the dictionary, false otherwise.
+- The sayings in the collection are in alphabetical order. Predecessor thus gives you the immediately prior saying, and successor the immediately following one.
+
 ```
 int main(int argc, char* argv[]) {   // Both or whatever
 
