@@ -1,31 +1,35 @@
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[]) {   // Both or whatever
 
 }
 
-struct Saying() {
-
-}
-
-
-struct Node() {
+struct Saying() {  // Adam
 
 }
 
 
-void rotateLeft() {
+
+struct Node() {  // Adam
 
 }
 
 
-void rotateRight() {
+void rotateLeft() {  // Shayde
 
 }
 
-void insert() {
+
+
+void rotateRight() {    // Shayde
 
 }
 
-void insertViolationFix() {
+
+void insert() {    // Adam  
+
+}
+
+
+void insertViolationFix() {   // Shayde
 
 }
 
