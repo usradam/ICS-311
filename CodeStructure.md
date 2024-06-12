@@ -19,7 +19,7 @@ struct Node {                          // Adam -- Will be a header file
     struct Node *left, *right, *parent;
 };
 
-Node* createNode(Saying saying) {
+Node* createNode(Saying saying) {        // My pending code (may have some changes)
     Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->saying = saying;
     newNode->color = 'R';   // new nodes are red
