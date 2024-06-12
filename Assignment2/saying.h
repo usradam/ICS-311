@@ -2,7 +2,7 @@
 //
 //  NAME:        Adam Graham
 //
-//  Assignment:  2
+//  ASSIGNMENT:  2
 //
 //  CLASS:       ICS 311
 //
