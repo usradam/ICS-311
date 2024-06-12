@@ -1,3 +1,4 @@
+```
 int main(int argc, char* argv[]) {   // Both or whatever
 
 }
@@ -32,4 +33,4 @@ void insert() {    // Adam
 void insertViolationFix() {   // Shayde
 
 }
-
+```
