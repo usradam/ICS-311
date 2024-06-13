@@ -1,6 +1,35 @@
+/*****************************************************************
+//
+//  NAMES:       Adam Graham
+//               Shayde Tamura
+//
+//  ASSIGNMENT:  2
+//
+//  CLASS:       ICS 311
+//
+//  INSTRUCTOR:  Brook Conner
+//
+//  DATE:        June 12, 2024
+//
+//  FILE:        rbtree.c
+//
+//  DESCRIPTION:
+//   Implementation of red-black tree and dictionary operations.
+//
+****************************************************************/
+
 #include "rbtree.h"
 #include <stdlib.h>
 #include <string.h>
+
+/*****************************************************************
+//
+//  Function name: leftRotate
+//
+//  DESCRIPTION:
+//
+//
+****************************************************************/
 
 void leftRotate(struct RBTree *tree, struct RBTreeNode *x)
 {
@@ -41,9 +70,16 @@ void leftRotate(struct RBTree *tree, struct RBTreeNode *x)
     x->parent = y;
 }
 
+/*****************************************************************
+//
+//  Function name: rightRotate
+//
+//  DESCRIPTION:
+//
+//
+****************************************************************/
 
-
-void rightRotate(struct RBTree *tree, struct RBTreeNode *x) {        //Shayde
+void rightRotate(struct RBTree *tree, struct RBTreeNode *x) {
     // Set y to x's left child
     struct RBTreeNode *y = x->left;
 
@@ -76,8 +112,14 @@ void rightRotate(struct RBTree *tree, struct RBTreeNode *x) {        //Shayde
     x->parent = y;
 }
 
-
-
+/*****************************************************************
+//
+//  Function name: insert
+//
+//  DESCRIPTION:
+//
+//
+****************************************************************/
 
 void insert(struct RBTree *tree, struct Saying saying) {
     struct RBTreeNode *pt = createNode(saying);
@@ -107,6 +149,14 @@ void insert(struct RBTree *tree, struct Saying saying) {
     }
 }
 
+/*****************************************************************
+//
+//  Function name: insertViolationFix
+//
+//  DESCRIPTION:
+//
+//
+****************************************************************/
 
 void insertViolationFix(struct RBTree *tree, struct RBTreeNode *k) {
     struct RBTreeNode *u; // uncle node
@@ -158,6 +208,15 @@ void insertViolationFix(struct RBTree *tree, struct RBTreeNode *k) {
     tree->root->color = 'B';
 }
 
+/*****************************************************************
+//
+//  Function name: createNode
+//
+//  DESCRIPTION:
+//
+//
+****************************************************************/
+
 struct RBTreeNode* createNode(struct Saying saying) {
     struct RBTreeNode *node = malloc(sizeof(struct RBTreeNode));
     node->saying = saying;
@@ -168,10 +227,27 @@ struct RBTreeNode* createNode(struct Saying saying) {
     return node;
 }
 
+/*****************************************************************
+//
+//  Function name: compareSayings
+//
+//  DESCRIPTION:
+//
+//
+****************************************************************/
 
 int compareSayings(struct Saying a, struct Saying b) {
     return strcmp(a.hawaiian, b.hawaiian);
 }
+
+/*****************************************************************
+//
+//  Function name: Member
+//
+//  DESCRIPTION:
+//
+//
+****************************************************************/
 
 int Member(struct RBTree *tree, struct Saying saying) {
     struct RBTreeNode *x = tree->root;
@@ -187,6 +263,15 @@ int Member(struct RBTree *tree, struct Saying saying) {
     }
     return 0;  // Didn't find the saying
 }
+
+/*****************************************************************
+//
+//  Function name: Predecessor
+//
+//  DESCRIPTION:
+//
+//
+****************************************************************/
 
 struct Saying Predecessor(struct RBTree *tree, struct Saying saying) {
     struct RBTreeNode *x = tree->root;
@@ -215,6 +300,15 @@ struct Saying Predecessor(struct RBTree *tree, struct Saying saying) {
     return pred->saying;
 }
 
+/*****************************************************************
+//
+//  Function name: Successor
+//
+//  DESCRIPTION:
+//
+//
+****************************************************************/
+
 struct Saying Successor(struct RBTree *tree, struct Saying saying) {
     struct RBTreeNode *x = tree->root;
     struct RBTreeNode *succ = NULL;
@@ -241,4 +335,3 @@ struct Saying Successor(struct RBTree *tree, struct Saying saying) {
     }
     return succ->saying;
 }
-
