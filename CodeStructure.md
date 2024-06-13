@@ -117,10 +117,33 @@ void rightRotate(RBTree *tree, RBTreeNode *x) {        //Shayde
 
 
 
-void insert() {    // Adam  
-
-}
-
+void insert(Node **root, Saying saying) {    // Adam
+    Node *pt = createNode(saying);
+    if (*root == NULL)
+    {
+        pt->color = 'B';
+        (*root) = pt;
+    }
+    else
+    {
+        Node *y = NULL;
+        Node *x = (*root);
+        while (x != NULL)
+        {
+            y = x;
+            if (pt->key < x->key)
+                x = x->left;
+            else
+                x = x->right;
+        }
+        pt->parent = y;
+        if (pt->key < y->key)
+            y->left = pt;
+        else
+            y->right = pt;
+        fixViolation(root, pt);
+        }
+    }
 
 
 
