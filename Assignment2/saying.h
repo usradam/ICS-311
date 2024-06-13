@@ -19,8 +19,8 @@
 
 struct Saying
 {
-    char hawaiianSaying[256];
-    char englishTranslation[256];
+    char hawaiian[256];
+    char english[256];
     char hawaiianExplanation[256];
     char englishExplanation[256];
 };
