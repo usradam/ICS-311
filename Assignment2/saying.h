@@ -1,6 +1,7 @@
 /*****************************************************************
 //
-//  NAME:        Adam Graham
+//  NAMES:       Adam Graham
+//               Shayde Tamura
 //
 //  ASSIGNMENT:  2
 //
@@ -13,14 +14,17 @@
 //  FILE:        saying.h
 //
 //  DESCRIPTION:
-//   Header file for the Hawaiian and English sayings.
+//   Header file for the Hawaiian and English sayings with their
+//   associated explanations.
 //
 ****************************************************************/
 
+#include <wchar.h>
+
 struct Saying
 {
-    char hawaiian[256];
-    char english[256];
-    char hawaiianExplanation[256];
-    char englishExplanation[256];
+    wchar_t hawaiian[256];
+    wchar_t english[256];
+    wchar_t hawaiianExplanation[256];
+    wchar_t englishExplanation[256];
 };

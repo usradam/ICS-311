@@ -14,7 +14,7 @@
 //  FILE:        main.c
 //
 //  DESCRIPTION:
-//   Driver code for the program.
+//   Driver code for the program to test dictionary operations.
 //
 ****************************************************************/
 
@@ -31,14 +31,21 @@ int main(int argc, char* argv[]) {
     tree.root = NULL;
     tree.TNULL = NULL;
 
-    // Create some sayings
-    // TEMPLATE SAYINGS - Note reflective of real things
-    struct Saying saying1 = {L"E kaupē aku nō i ka hoe a kō mai", L"Hello", L"A greeting in Hawaiian", L"A greeting in English"};
-    struct Saying saying2 = {L"Mahalo", L"Thank you", L"An expression of gratitude in Hawaiian", L"An expression of gratitude in English"};
-    struct Saying saying3 = {L"Amount", L"Thank you", L"An expression of gratitude in Hawaiian", L"An expression of gratitude in English"};
-    struct Saying saying4 = {L"Cool", L"Thank you", L"An expression of gratitude in Hawaiian", L"An expression of gratitude in English"};
-    struct Saying saying5 = {L"Ua hala ʻē ka Puʻulena.", L"The Puʻulena wind of Puna has passed.", L"An expression of gratitude in Hawaiian", L"Too late! Your chance has passed. Be quick next time."};
+    // Hawaiian and English sayings
+    struct Saying saying1 = {L"Kūlia i ka nuʻu", L"Strive to reach the highest",
+            L"Motto of Queen Kapiʻolani", L"Strive to do your best."};
 
+    struct Saying saying2 = {L"ʻAʻohe hana i nele i ka uku", L"No deed lacks a reward",
+            L"Every deed, good or bad, receives its just reward.",L"-Always be kūpono because there are consequences for our actions. Can also be said when karma hits"};
+
+    struct Saying saying3 = {L"ʻAʻohe puʻu kiʻekiʻe ke hoʻāʻo e piʻi", L"No cliff is so tall that it cannot be scaled",
+            L"No problem is too great when one tries hard to solve it", L"Try something even though it seems difficult"};
+
+    struct Saying saying4 = {L"He aliʻi ka ʻāina, he kauā ke kanaka", L"The land is a chief; man is its servant",
+            L"Land has no need for man, but man needs the land and works it for a livelihood", L"We have to take care of the land"};
+
+    struct Saying saying5 = {L"I ka ʻōlelo nō ke ola, i ka ʻōlelo nō ka make", L"Life is in speech; death is in speech",
+            L"Words can heal; words can destroy", L"Be careful with what you say. It can lead to good and bad consequences"};
 
     // Insert the sayings into the tree
     insert(&tree, saying1);
@@ -47,9 +54,8 @@ int main(int argc, char* argv[]) {
     insert(&tree, saying4);
     insert(&tree, saying5);
 
-    // Call your dictionary operations here and print the results
-    // For example:
-    wprintf(L"Is 'E kaupē aku nō i ka hoe a kō mai' in the tree? %s\n", Member(&tree, saying1) ? L"Yes" : L"No");
+    // Call the dictionary operations here and print the results
+    wprintf(L"Is 'Kūlia i ka nuʻu' in the tree? %s\n", Member(&tree, saying1) ? L"Yes" : L"No");
 
     printf("\nAlphabetized Dictionary List:\n");
     inOrderTraversal(&tree, tree.root);

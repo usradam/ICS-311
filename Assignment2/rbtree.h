@@ -1,6 +1,7 @@
 /*****************************************************************
 //
-//  NAME:        Adam Graham
+//  NAMES:       Adam Graham
+//               Shayde Tamura
 //
 //  ASSIGNMENT:  2
 //
@@ -10,10 +11,10 @@
 //
 //  DATE:        June 12, 2024
 //
-//  FILE:        redblacktree.h
+//  FILE:        rbtree.h
 //
 //  DESCRIPTION:
-//   Header file for the structure of a red-black tree.
+//   Header file for the structure and prototypes of our red-black tree.
 //
 ****************************************************************/
 
@@ -32,11 +33,12 @@ struct RBTree
     struct RBTreeNode *TNULL;
 };
 
-struct RBTreeNode* createNode(struct Saying saying);
+struct RBTreeNode* createNode(struct RBTree *tree, struct Saying saying);
 void leftRotate(struct RBTree *tree, struct RBTreeNode *x);
 void rightRotate(struct RBTree *tree, struct RBTreeNode *y);
 void insert(struct RBTree *tree, struct Saying saying);
 void insertViolationFix(struct RBTree *tree, struct RBTreeNode *k);
 int compareSayings(struct Saying a, struct Saying b);
 int Member(struct RBTree *tree, struct Saying saying);
+void inOrderTraversal(struct RBTree *tree, struct RBTreeNode *node);
 
