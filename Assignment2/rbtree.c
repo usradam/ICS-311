@@ -154,7 +154,6 @@ void insert(struct RBTree *tree, struct Saying saying)
             y->left = pt;
         else
             y->right = pt;
-        insertViolationFix(tree, pt);
     }
 }
 
@@ -201,8 +200,8 @@ void insertViolationFix(struct RBTree *tree, struct RBTreeNode *k) {
         {
             u = k->parent->parent->right != tree->TNULL ? k->parent->parent->right : tree->TNULL;
 
-            if (u->color == 'R')
-            { // Case 1: Uncle is red
+            if (u->color == 'R')    // Case 1: Uncle is red
+            {
                 u->color = 'B';
                 k->parent->color = 'B';
                 k->parent->parent->color = 'R';
@@ -210,8 +209,8 @@ void insertViolationFix(struct RBTree *tree, struct RBTreeNode *k) {
             }
             else
             {
-                if (k == k->parent->right)
-                { // Case 2: Node is a right child
+                if (k == k->parent->right)  // Case 2: Node is a right child
+                {
                     k = k->parent;
                     leftRotate(tree, k);
                 }
