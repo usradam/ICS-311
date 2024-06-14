@@ -19,8 +19,8 @@
 ****************************************************************/
 
 #include "rbtree.h"
+#include <locale.h>
 #include <stdlib.h>
-#include <string.h>
 
 /*****************************************************************
 //
@@ -122,8 +122,8 @@ void rightRotate(struct RBTree *tree, struct RBTreeNode *x) {
 ****************************************************************/
 
 void insert(struct RBTree *tree, struct Saying saying) {
-    struct RBTreeNode *pt = createNode(saying);
-    if (tree->root == NULL)
+    struct RBTreeNode *pt = createNode(tree, saying);  // Pass tree as the first argument
+    if (tree->root == tree->TNULL)  // Check for TNULL instead of NULL
     {
         pt->color = 'B';
         tree->root = pt;
@@ -132,7 +132,7 @@ void insert(struct RBTree *tree, struct Saying saying) {
     {
         struct RBTreeNode *y = NULL;
         struct RBTreeNode *x = tree->root;
-        while (x != NULL)
+        while (x != tree->TNULL)  // Check for TNULL instead of NULL
         {
             y = x;
             if (compareSayings(pt->saying, x->saying) < 0)
@@ -141,13 +141,18 @@ void insert(struct RBTree *tree, struct Saying saying) {
                 x = x->right;
         }
         pt->parent = y;
-        if (compareSayings(pt->saying, y->saying) < 0)
+        if (y == tree->TNULL)  // Check for TNULL instead of NULL
+        {
+            tree->root = pt;
+        }
+        else if (compareSayings(pt->saying, y->saying) < 0)
             y->left = pt;
         else
             y->right = pt;
         insertViolationFix(tree, pt);
     }
 }
+
 
 /*****************************************************************
 //
@@ -164,7 +169,7 @@ void insertViolationFix(struct RBTree *tree, struct RBTreeNode *k) {
     // Fix the tree until k is the root or the parent of k is black
     while (k->parent->color == 'R') {
         if (k->parent == k->parent->parent->right) {
-            u = k->parent->parent->left; // uncle node
+            u = k->parent->parent->left != tree->TNULL ? k->parent->parent->left : tree->TNULL; // uncle node
 
             if (u->color == 'R') { // Case 1: Uncle is red
                 u->color = 'B';
@@ -182,7 +187,7 @@ void insertViolationFix(struct RBTree *tree, struct RBTreeNode *k) {
                 leftRotate(tree, k->parent->parent);
             }
         } else {
-            u = k->parent->parent->right; // uncle node
+            u = k->parent->parent->right != tree->TNULL ? k->parent->parent->right : tree->TNULL;
 
             if (u->color == 'R') { // Case 1: Uncle is red
                 u->color = 'B';
@@ -217,12 +222,12 @@ void insertViolationFix(struct RBTree *tree, struct RBTreeNode *k) {
 //
 ****************************************************************/
 
-struct RBTreeNode* createNode(struct Saying saying) {
+struct RBTreeNode* createNode(struct RBTree *tree, struct Saying saying) {
     struct RBTreeNode *node = malloc(sizeof(struct RBTreeNode));
     node->saying = saying;
-    node->left = NULL;
-    node->right = NULL;
-    node->parent = NULL;
+    node->left = tree->TNULL;  // Set left child to TNULL
+    node->right = tree->TNULL;  // Set right child to TNULL
+    node->parent = tree->TNULL;  // Set parent to TNULL
     node->color = 'R';  // New nodes are initially red
     return node;
 }
@@ -237,7 +242,8 @@ struct RBTreeNode* createNode(struct Saying saying) {
 ****************************************************************/
 
 int compareSayings(struct Saying a, struct Saying b) {
-    return strcmp(a.hawaiian, b.hawaiian);
+    setlocale(LC_ALL, "");
+    return wcscoll(a.hawaiian, b.hawaiian);
 }
 
 /*****************************************************************
@@ -264,74 +270,11 @@ int Member(struct RBTree *tree, struct Saying saying) {
     return 0;  // Didn't find the saying
 }
 
-/*****************************************************************
-//
-//  Function name: Predecessor
-//
-//  DESCRIPTION:
-//
-//
-****************************************************************/
-
-struct Saying Predecessor(struct RBTree *tree, struct Saying saying) {
-    struct RBTreeNode *x = tree->root;
-    struct RBTreeNode *pred = NULL;
-    while (x != NULL)
-    {
-        int cmp = compareSayings(saying, x->saying);
-        if (cmp < 0)
-            x = x->left;
-        else if (cmp > 0)
-        {
-            pred = x;
-            x = x->right;
-        }
-        else
-        {
-            if (x->left != NULL)
-            {
-                pred = x->left;
-                while (pred->right != NULL)
-                    pred = pred->right;
-            }
-            break;
-        }
+void inOrderTraversal(struct RBTree *tree, struct RBTreeNode *node) {
+    if (node != tree->TNULL) {
+        inOrderTraversal(tree, node->left);
+        wprintf(L"%ls\n", node->saying.hawaiian);
+        inOrderTraversal(tree, node->right);
     }
-    return pred->saying;
 }
 
-/*****************************************************************
-//
-//  Function name: Successor
-//
-//  DESCRIPTION:
-//
-//
-****************************************************************/
-
-struct Saying Successor(struct RBTree *tree, struct Saying saying) {
-    struct RBTreeNode *x = tree->root;
-    struct RBTreeNode *succ = NULL;
-    while (x != NULL)
-    {
-        int cmp = compareSayings(saying, x->saying);
-        if (cmp < 0)
-        {
-            succ = x;
-            x = x->left;
-        }
-        else if (cmp > 0)
-            x = x->right;
-        else
-        {
-            if (x->right != NULL)
-            {
-                succ = x->right;
-                while (succ->left != NULL)
-                    succ = succ->left;
-            }
-            break;
-        }
-    }
-    return succ->saying;
-}
