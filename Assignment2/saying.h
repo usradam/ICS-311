@@ -24,7 +24,7 @@
 struct Saying
 {
     wchar_t hawaiian[256];
-    wchar_t english[256];
-    wchar_t hawaiianExplanation[256];
-    wchar_t englishExplanation[256];
+    char english[256];
+    char hawaiianExplanation[256];
+    char englishExplanation[256];
 };

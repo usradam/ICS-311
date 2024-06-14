@@ -21,6 +21,8 @@
 #include "rbtree.h"
 #include <locale.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 /*****************************************************************
 //
@@ -109,7 +111,6 @@ void rightRotate(struct RBTree *tree, struct RBTreeNode *x)
         // If x is a left child, set y as the left child of x's parent
         x->parent->left = y;
     }
-
     // Make x the right child of y
     y->right = x;
 
@@ -137,7 +138,7 @@ void insert(struct RBTree *tree, struct Saying saying)
     {
         struct RBTreeNode *y = NULL;
         struct RBTreeNode *x = tree->root;
-        while (x != tree->TNULL)  // Check for TNULL instead of NULL
+        while (x != tree->TNULL)    // Check for TNULL instead of NULL
         {
             y = x;
             if (compareSayings(pt->saying, x->saying) < 0)
@@ -303,3 +304,38 @@ void inOrderTraversal(struct RBTree *tree, struct RBTreeNode *node)
     }
 }
 
+/*****************************************************************
+//
+//  Function name: MeHua
+//
+//  DESCRIPTION:
+//
+****************************************************************/
+
+void MeHua(struct RBTree *tree, struct RBTreeNode *node, wchar_t* word) {
+    if (node != tree->TNULL) {
+        MeHua(tree, node->left, word);
+        if (wcsstr(node->saying.hawaiian, word) != NULL) {
+            wprintf(L"%ls\n", node->saying.hawaiian);
+        }
+        MeHua(tree, node->right, word);
+    }
+}
+
+/*****************************************************************
+//
+//  Function name: WithWord
+//
+//  DESCRIPTION:
+//
+****************************************************************/
+
+void WithWord(struct RBTree *tree, struct RBTreeNode *node, char* word) {
+    if (node != tree->TNULL) {
+        WithWord(tree, node->left, word);
+        if (strstr(node->saying.english, word) != NULL) {
+            printf("%s\n", node->saying.english);
+        }
+        WithWord(tree, node->right, word);
+    }
+}

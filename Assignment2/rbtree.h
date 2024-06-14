@@ -41,4 +41,6 @@ void insertViolationFix(struct RBTree *tree, struct RBTreeNode *k);
 int compareSayings(struct Saying a, struct Saying b);
 int Member(struct RBTree *tree, struct Saying saying);
 void inOrderTraversal(struct RBTree *tree, struct RBTreeNode *node);
+void MeHua(struct RBTree *tree, struct RBTreeNode *node, wchar_t* word);
+void WithWord(struct RBTree *tree, struct RBTreeNode *node, char* word);
 
