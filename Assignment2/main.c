@@ -20,7 +20,7 @@
 
 #include "rbtree.h"
 #include <stdio.h>
-#include <locale.h> rbtr
+#include <locale.h>
 #include <stdlib.h>
 
 int main(int argc, char* argv[]) {
@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
     tree.TNULL->left = tree.TNULL;
     tree.TNULL->right = tree.TNULL;
     tree.TNULL->parent = tree.TNULL;
-    tree.root = tree.TNULL; // Set the tree root to TNULL
+    tree.root = tree.TNULL;
 
 
     // Hawaiian and English sayings
