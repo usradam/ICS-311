@@ -29,6 +29,7 @@
 //  Function name: leftRotate
 //
 //  DESCRIPTION:
+//   Performs a left rotation on a given node 'x' to maintain the balance of the tree.
 //
 ****************************************************************/
 
@@ -76,6 +77,7 @@ void leftRotate(struct RBTree *tree, struct RBTreeNode *x)
 //  Function name: rightRotate
 //
 //  DESCRIPTION:
+//    Performs a right rotation on a given node 'x' to maintain a balanced tree
 //
 ****************************************************************/
 
@@ -123,6 +125,7 @@ void rightRotate(struct RBTree *tree, struct RBTreeNode *x)
 //  Function name: insert
 //
 //  DESCRIPTION:
+//    Creates a new node, then checks if the tree is empty, and finally inserts the node into the tree.
 //
 ****************************************************************/
 
@@ -164,6 +167,7 @@ void insert(struct RBTree *tree, struct Saying saying)
 //  Function name: insertViolationFix
 //
 //  DESCRIPTION:
+//    Ensures that the red-black tree stays a red-black tree by performing rotations.
 //
 ****************************************************************/
 
@@ -234,6 +238,7 @@ void insertViolationFix(struct RBTree *tree, struct RBTreeNode *k) {
 //  Function name: createNode
 //
 //  DESCRIPTION:
+//    Initializes and creates a new node with a saying, and makes sure it abides by the red-black tree standards.
 //
 ****************************************************************/
 
@@ -253,6 +258,8 @@ struct RBTreeNode* createNode(struct RBTree *tree, struct Saying saying)
 //  Function name: compareSayings
 //
 //  DESCRIPTION:
+//    Makes sure that two Hawaiian sayings are compared using locale-aware string collation.
+//    
 //
 ****************************************************************/
 
@@ -267,6 +274,7 @@ int compareSayings(struct Saying a, struct Saying b)
 //  Function name: Member
 //
 //  DESCRIPTION:
+//    Goes throughout the tree to see if a certain saying exists.
 //
 ****************************************************************/
 
@@ -291,6 +299,7 @@ int Member(struct RBTree *tree, struct Saying saying)
 //  Function name: inOrderTraversal
 //
 //  DESCRIPTION:
+//    Traverses the left tree recursively, then prints out the Hawaiian saying, following that traverses the right tree recursively. 
 //
 ****************************************************************/
 
@@ -309,6 +318,7 @@ void inOrderTraversal(struct RBTree *tree, struct RBTreeNode *node)
 //  Function name: MeHua
 //
 //  DESCRIPTION:
+//    Traverses through the red-black tree and prints all of the Hawaiian sayings with a certain Hawaiian word in it. 
 //
 ****************************************************************/
 
@@ -327,6 +337,7 @@ void MeHua(struct RBTree *tree, struct RBTreeNode *node, wchar_t* word) {
 //  Function name: WithWord
 //
 //  DESCRIPTION:
+//    Traverses through the tree and prints all of the English translations with a certain English word in it. 
 //
 ****************************************************************/
 
