@@ -20,7 +20,7 @@
 
 #include "rbtree.h"
 #include <stdio.h>
-#include <locale.h>
+#include <locale.h> rbtr
 #include <stdlib.h>
 
 int main(int argc, char* argv[]) {
@@ -67,16 +67,38 @@ int main(int argc, char* argv[]) {
     wprintf(L"Is 'He aliʻi ka ʻāina, he kauā ke kanaka' in the tree? %s\n", Member(&tree, saying4) ? L"Yes" : L"No");
     wprintf(L"Is 'I ka ʻōlelo nō ke ola, i ka ʻōlelo nō ka make' in the tree? %s\n", Member(&tree, saying4) ? L"Yes" : L"No");
 
+    printf("-----------------------------------------------------------------");
+
+    // Print the list of sayings in the dictionary alphabetically
     printf("\nDictionary List Alphabetized:\n");
     inOrderTraversal(&tree, tree.root);
 
-    // Test the MeHua function
+    printf("-----------------------------------------------------------------");
+
+    // Testing the MeHua function
     wprintf(L"\nSayings containing 'nuʻu':\n");
     MeHua(&tree, tree.root, L"nuʻu");
 
-    // Test the WithWord function
+    wprintf(L"\nSayings containing 'ʻAʻohe':\n");
+    MeHua(&tree, tree.root, L"ʻAʻohe");
+
+    wprintf(L"\nSayings containing 'ʻōlelo':\n");
+    MeHua(&tree, tree.root, L"ʻōlelo");
+
+    printf("-----------------------------------------------------------------");
+
+    // Testing the WithWord function
     printf("\nSayings containing 'highest':\n");
     WithWord(&tree, tree.root, "highest");
+
+    printf("\nSayings containing 'deed':\n");
+    WithWord(&tree, tree.root, "deed");
+
+    printf("\nSayings containing 'chief':\n");
+    WithWord(&tree, tree.root, "chief");
+
+    printf("\nSayings containing 'No':\n");
+    WithWord(&tree, tree.root, "No");
 
     return 0;
 }
