@@ -21,7 +21,7 @@
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class SkillSharingScenario {
+public class Scenario4 {
 
     static class Island {
         String name;
