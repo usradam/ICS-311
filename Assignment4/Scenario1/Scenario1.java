@@ -21,7 +21,7 @@
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Scenario4 {
+public class Scenario1 {
 
     static class Island {
         String name;
