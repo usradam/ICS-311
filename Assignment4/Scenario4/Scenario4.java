@@ -43,7 +43,6 @@ public class Scenario4 {
             this.place = place;
             this.travelTime = travelTime;
         }
-
     }
 
     public static class PolynesianTriangle {
@@ -107,49 +106,49 @@ public class Scenario4 {
                 }
             }
         }
+    }
 
-        public static void main(String[] args) {
-            PolynesianTriangle triangle = new PolynesianTriangle();
+    public static void main(String[] args) {
+        PolynesianTriangle triangle = new PolynesianTriangle();
 
-            Island hawaii = new Island("Hawaii", 120);
-            Island newZealand = new Island("New Zealand", 180);
-            Island easterIsland = new Island("Easter Island", 150);
-            Island tahiti = new Island("Tahiti", 90);
-            Island samoa = new Island("Samoa", 110);
+        Island hawaii = new Island("Hawaii", 120);
+        Island newZealand = new Island("New Zealand", 180);
+        Island easterIsland = new Island("Easter Island", 150);
+        Island tahiti = new Island("Tahiti", 90);
+        Island samoa = new Island("Samoa", 110);
 
-            triangle.addIsland(hawaii);
-            triangle.addIsland(newZealand);
-            triangle.addIsland(easterIsland);
-            triangle.addIsland(tahiti);
-            triangle.addIsland(samoa);
+        triangle.addIsland(hawaii);
+        triangle.addIsland(newZealand);
+        triangle.addIsland(easterIsland);
+        triangle.addIsland(tahiti);
+        triangle.addIsland(samoa);
 
-            triangle.addEdge(hawaii, tahiti, 300);
-            triangle.addEdge(tahiti, hawaii, 280);
-            triangle.addEdge(tahiti, newZealand, 600);
-            triangle.addEdge(newZealand, tahiti, 580);
-            triangle.addEdge(tahiti, easterIsland, 400);
-            triangle.addEdge(easterIsland, tahiti, 380);
-            triangle.addEdge(tahiti, samoa, 200);
-            triangle.addEdge(samoa, tahiti, 180);
+        triangle.addEdge(hawaii, tahiti, 300);
+        triangle.addEdge(tahiti, hawaii, 280);
+        triangle.addEdge(tahiti, newZealand, 600);
+        triangle.addEdge(newZealand, tahiti, 580);
+        triangle.addEdge(tahiti, easterIsland, 400);
+        triangle.addEdge(easterIsland, tahiti, 380);
+        triangle.addEdge(tahiti, samoa, 200);
+        triangle.addEdge(samoa, tahiti, 180);
 
-            System.out.println("When the source node (starting point) is Hawaii:");
-            triangle.dijkstra(hawaii);
-            System.out.println("----------------------------------------------------------------");
+        System.out.println("When the source node (starting point) is Hawaii:");
+        triangle.dijkstra(hawaii);
+        System.out.println("----------------------------------------------------------------");
 
-            System.out.println("When the source node (starting point) is New Zealand:");
-            triangle.dijkstra(newZealand);
-            System.out.println("----------------------------------------------------------------");
+        System.out.println("When the source node (starting point) is New Zealand:");
+        triangle.dijkstra(newZealand);
+        System.out.println("----------------------------------------------------------------");
 
-            System.out.println("When the source node (starting point) is Easter Island:");
-            triangle.dijkstra(easterIsland);
-            System.out.println("----------------------------------------------------------------");
+        System.out.println("When the source node (starting point) is Easter Island:");
+        triangle.dijkstra(easterIsland);
+        System.out.println("----------------------------------------------------------------");
 
-            System.out.println("When the source node (starting point) is Tahiti:");
-            triangle.dijkstra(tahiti);
-            System.out.println("----------------------------------------------------------------");
+        System.out.println("When the source node (starting point) is Tahiti:");
+        triangle.dijkstra(tahiti);
+        System.out.println("----------------------------------------------------------------");
 
-            System.out.println("When the source node (starting point) is Samoa:");
-            triangle.dijkstra(samoa);
-        }
+        System.out.println("When the source node (starting point) is Samoa:");
+        triangle.dijkstra(samoa);
     }
 }
