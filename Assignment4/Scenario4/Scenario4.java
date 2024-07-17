@@ -1,3 +1,23 @@
+/*****************************************************************
+ //
+ //  NAMES:       Adam Graham, Shayde Tamura, Sam Doan
+ //
+ //  Assignment:  4
+ //
+ //  CLASS:       ICS 311
+ //
+ //  INSTRUCTOR:  Brook Conner
+ //
+ //  DATE:        July 16, 2024
+ //
+ //  FILE:        Scenario4.java
+ //
+ //  DESCRIPTION:
+ //   A program that finds the shortest path to a specified island when given a starting point from
+ //   within the Polynesian Triangle.
+ //
+ ****************************************************************/
+
 import java.util.*;
 import java.util.stream.Collectors;
 
