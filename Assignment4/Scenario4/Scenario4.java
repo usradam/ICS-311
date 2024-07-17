@@ -1,6 +1,6 @@
 /*****************************************************************
  //
- //  NAMES:       Adam Graham, Shayde Tamura, Sam Doan
+ //  NAMES:       Adam Graham, Shayde Tamura
  //
  //  Assignment:  4
  //
