@@ -1,0 +1,40 @@
+Script started on Tue 16 Jul 2024 07:48:12 PM HST
+]0;adamgra@uhx02:~/ics311/assignment4[?1034huhx02:/home/a/adamgra/ics311/assignment4% java Scenario4
+When the source node (starting point) is Hawaii:
+Path to Hawaii: Hawaii
+Path to New Zealand: Hawaii -> Tahiti -> New Zealand
+Path to Easter Island: Hawaii -> Tahiti -> Easter Island
+Path to Tahiti: Hawaii -> Tahiti
+Path to Samoa: Hawaii -> Tahiti -> Samoa
+----------------------------------------------------------------
+When the source node (starting point) is New Zealand:
+Path to New Zealand: New Zealand
+Path to Hawaii: New Zealand -> Tahiti -> Hawaii
+Path to Easter Island: New Zealand -> Tahiti -> Easter Island
+Path to Tahiti: New Zealand -> Tahiti
+Path to Samoa: New Zealand -> Tahiti -> Samoa
+----------------------------------------------------------------
+When the source node (starting point) is Easter Island:
+Path to Easter Island: Easter Island
+Path to Hawaii: Easter Island -> Tahiti -> Hawaii
+Path to New Zealand: Easter Island -> Tahiti -> New Zealand
+Path to Tahiti: Easter Island -> Tahiti
+Path to Samoa: Easter Island -> Tahiti -> Samoa
+----------------------------------------------------------------
+When the source node (starting point) is Tahiti:
+Path to Tahiti: Tahiti
+Path to Hawaii: Tahiti -> Hawaii
+Path to New Zealand: Tahiti -> New Zealand
+Path to Easter Island: Tahiti -> Easter Island
+Path to Samoa: Tahiti -> Samoa
+----------------------------------------------------------------
+When the source node (starting point) is Samoa:
+Path to Samoa: Samoa
+Path to Hawaii: Samoa -> Tahiti -> Hawaii
+Path to New Zealand: Samoa -> Tahiti -> New Zealand
+Path to Easter Island: Samoa -> Tahiti -> Easter Island
+Path to Tahiti: Samoa -> Tahiti
+]0;adamgra@uhx02:~/ics311/assignment4uhx02:/home/a/adamgra/ics311/assignment4% exit
+exit
+
+Script done on Tue 16 Jul 2024 07:48:22 PM HST
