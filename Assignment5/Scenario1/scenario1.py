@@ -1,18 +1,18 @@
 ########################################################
 #
-#  Name: Adam Graham
+# Name: Adam Graham
 #
-#  Assignment: 5
+# Assignment: 5
 #
-#  Instructor: Brook Conner
+# Instructor: Brook Conner
 #
-#  Date: July 31, 2024
+# Date: July 31, 2024
 #
-#  File: scenario1.py
+# File: scenario1.py
 #
-#  Description:
-#   Program that searches through various social media posts
-#   and sorts them by total views into a bar chart.
+# Description:
+#  Program that searches through various social media posts
+#  and sorts them by total views into a bar chart.
 #
 ########################################################
 
@@ -30,9 +30,9 @@ class User:
         self.read_posts = []
         self.comments = []
 
-    def view_post(self, post, batch_size):
+    def view_post(self, post, total_views):
         self.read_posts.append(post)
-        post.add_view(batch_size)
+        post.add_view(total_views)
 
 
 class Post:
@@ -42,8 +42,8 @@ class Post:
         self.comments = []
         self.views = 0  # Initialize views as an integer
 
-    def add_view(self, batch_size):
-        self.views += batch_size  # Increment views by the batch size
+    def add_view(self, total_views):
+        self.views += total_views  # Increment views by the batch size
 
 
 def bfs(G, start_node):
@@ -140,16 +140,16 @@ def main():
     post10 = Post(user10, "Watch this space")
 
     # Users view posts
-    user1.view_post(post1, batch_size=32321)
-    user2.view_post(post2, batch_size=32133)
-    user3.view_post(post3, batch_size=90679)
-    user4.view_post(post4, batch_size=55390)
-    user5.view_post(post5, batch_size=10041)
-    user6.view_post(post6, batch_size=85700)
-    user7.view_post(post7, batch_size=67530)
-    user8.view_post(post8, batch_size=2121)
-    user9.view_post(post9, batch_size=4050)
-    user10.view_post(post10, batch_size=110062)
+    user1.view_post(post1, total_views=32321)
+    user2.view_post(post2, total_views=32133)
+    user3.view_post(post3, total_views=90679)
+    user4.view_post(post4, total_views=55390)
+    user5.view_post(post5, total_views=10041)
+    user6.view_post(post6, total_views=85700)
+    user7.view_post(post7, total_views=67530)
+    user8.view_post(post8, total_views=2121)
+    user9.view_post(post9, total_views=4050)
+    user10.view_post(post10, total_views=110062)
 
     # Create a graph
     G = nx.Graph()
