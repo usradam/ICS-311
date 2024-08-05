@@ -1,4 +1,20 @@
-
+########################################################
+#
+# Name: Shayde Tamura
+#
+# Assignment: 5
+#
+# Instructor: Brook Conner
+#
+# Date: August 4, 2024
+#
+# File: scenario1.py
+#
+# Description:
+#  Program that will highlight interesting users based off 
+#  of attributes that can be selected.
+#
+########################################################
 
 
 
