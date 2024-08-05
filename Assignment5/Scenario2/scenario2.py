@@ -8,7 +8,7 @@
 #
 # Date: August 4, 2024
 #
-# File: scenario1.py
+# File: scenario2.py
 #
 # Description:
 #  Program that will highlight interesting users based off 
