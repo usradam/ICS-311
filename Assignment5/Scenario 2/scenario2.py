@@ -6,7 +6,7 @@
 #
 # Instructor: Brook Conner
 #
-# Date: July 31, 2024
+# Date: August 4, 2024
 #
 # File: scenario2.py
 #
